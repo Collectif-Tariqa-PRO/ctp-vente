@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parcours Vente — Collectif Tariqa PRO</title>
+<meta name="description" content="Va chercher tes premières ventes et confronte ton projet au marché. Le 2e des 6 piliers du Collectif Tariqa PRO.">
+<style>
+  :root{
+    --beige:#F4EFE5; --beige-2:#EDE6D6; --noir:#161413; --noir-2:#2c2722;
+    --or:#C29B45; --or-soft:#E8D9B5; --blanc:#FFFFFF; --gris:#6f675c;
+    --ok:#3f7a4f; --warn:#9a6a1f;
+    --radius:16px; --maxw:760px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    background:var(--beige); color:var(--noir);
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+    padding:0 20px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto}
+
+  header{text-align:center;padding:64px 0 40px}
+  .kicker{letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--or);font-weight:700;margin-bottom:18px}
+  h1{font-size:clamp(30px,6vw,46px);line-height:1.1;font-weight:800;letter-spacing:-.02em}
+  h1 .or{color:var(--or)}
+  .tagline{margin-top:14px;font-style:italic;color:var(--gris);font-size:17px}
+  .sub{margin-top:22px;font-size:17px;color:var(--noir-2);max-width:540px;margin-left:auto;margin-right:auto}
+  .rule{width:54px;height:3px;background:var(--or);border-radius:3px;margin:30px auto 0}
+
+  section{margin:40px 0}
+  h2{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--or);font-weight:700;margin-bottom:8px}
+  .lead{font-size:24px;font-weight:800;letter-spacing:-.01em;margin-bottom:16px;line-height:1.25}
+
+  .step{
+    background:var(--blanc);border:1px solid var(--beige-2);
+    border-radius:var(--radius);padding:26px 26px 24px;margin:18px 0;
+    box-shadow:0 1px 0 rgba(0,0,0,.02);
+  }
+  .step-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+  .num{
+    flex:0 0 auto;width:40px;height:40px;border-radius:50%;
+    background:var(--noir);color:var(--or);display:grid;place-items:center;
+    font-weight:800;font-size:18px;
+  }
+  .step-head h3{font-size:20px;font-weight:800;letter-spacing:-.01em}
+  .step p{margin:10px 0;color:var(--noir-2)}
+  .step ul{margin:10px 0 10px 4px;list-style:none}
+  .step ul li{position:relative;padding-left:24px;margin:7px 0;color:var(--noir-2)}
+  .step ul li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--or)}
+
+  .cmd{
+    position:relative;background:var(--noir);color:#f3ead6;
+    border-radius:12px;padding:16px 54px 16px 18px;margin:12px 0;
+    font-family:"SF Mono",Menlo,Consolas,monospace;font-size:14.5px;
+    overflow-x:auto;white-space:nowrap;
+  }
+  .cmd .copy{
+    position:absolute;right:8px;top:8px;background:var(--or);color:var(--noir);
+    border:none;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;
+    cursor:pointer;font-family:inherit;
+  }
+  .cmd .copy:active{transform:scale(.96)}
+  .say{display:inline-block;background:var(--or-soft);color:var(--noir);
+    border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:700}
+
+  .note{border-radius:12px;padding:16px 18px;margin:16px 0;font-size:15px}
+  .note .t{font-weight:800;margin-bottom:4px;display:block}
+  .note.info{background:var(--or-soft);border-left:4px solid var(--or)}
+  .note.warn{background:#f7ecd8;border-left:4px solid var(--warn)}
+  .note.ok{background:#e8f0e6;border-left:4px solid var(--ok)}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:8px}
+  @media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+  .tile{background:var(--blanc);border:1px solid var(--beige-2);border-radius:14px;padding:18px}
+  .tile .e{font-size:22px}
+  .tile b{display:block;margin:6px 0 2px;font-size:16px}
+  .tile span{color:var(--gris);font-size:14px}
+
+  details{background:var(--blanc);border:1px solid var(--beige-2);border-radius:12px;padding:4px 18px;margin:10px 0}
+  details summary{cursor:pointer;font-weight:700;padding:12px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"+ ";color:var(--or);font-weight:800}
+  details[open] summary::before{content:"– "}
+  details p{padding:0 0 14px;color:var(--noir-2)}
+
+  footer{text-align:center;padding:48px 0 60px;color:var(--gris)}
+  footer .brand{font-weight:800;color:var(--noir);font-size:18px}
+  footer .tg{color:var(--or);font-style:italic;margin-top:4px}
+  .bismillah{font-size:15px;color:var(--noir-2);margin-bottom:18px}
+
+  .rm{width:100%;border-collapse:collapse;background:var(--blanc);border:1px solid var(--beige-2);
+    border-radius:14px;overflow:hidden;font-size:15px;margin-top:10px}
+  .rm th,.rm td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--beige-2)}
+  .rm th{background:var(--beige-2);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--noir-2)}
+  .rm tr:last-child td{border-bottom:0}
+  .rm .ok{color:var(--ok);font-weight:700;white-space:nowrap}
+  .rm .soon{color:var(--gris);white-space:nowrap}
+  .rm .here td{background:rgba(194,155,69,.12);font-weight:700}
+  .rm a{color:var(--or);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Collectif Tariqa PRO · Pilier 2</div>
+    <h1>Va chercher tes<br><span class="or">premières ventes</span>.</h1>
+    <p class="tagline">Entreprendre. Ensemble. Vers Dieu.</p>
+    <p class="sub">Le moment où tu arrêtes de préparer et où tu te confrontes au marché. Ton projet n'existe pas tant qu'il n'a pas vendu.</p>
+    <div class="rule"></div>
+  </header>
+
+  <section>
+    <h2>Ce que tu vas faire</h2>
+    <p class="lead">Six étapes pour sortir de ton cocon, vendre, et le prouver.</p>
+    <div class="grid">
+      <div class="tile"><div class="e">🧭</div><b>Posture &amp; intention</b><span>Sortir de la cachette : perfectionnisme, « pas prêt », peur de te montrer.</span></div>
+      <div class="tile"><div class="e">📦</div><b>Ton offre-test (MVP)</b><span>L'offre la plus simple, vendable maintenant.</span></div>
+      <div class="tile"><div class="e">🤝</div><b>Capture la demande</b><span>Tes premières ventes sont souvent déjà dans ton réseau.</span></div>
+      <div class="tile"><div class="e">🎯</div><b>L'outbound intelligent</b><span>Aller chercher, sans spammer. Un message, une cible.</span></div>
+      <div class="tile"><div class="e">📞</div><b>Le rendez-vous</b><span>Ta trame d'appel, tes objections, oser conclure.</span></div>
+      <div class="tile"><div class="e">🎬</div><b>Publier</b><span>Le muscle de l'exposition : te faire connaître.</span></div>
+    </div>
+    <div class="note info"><span class="t">On exécute, on ne se cache pas</span>Ce n'est pas un cours qu'on regarde. C'est du <b>ping-pong</b> : tu passes à l'action, on évalue, on ajuste, on repart — jusqu'à tes premières ventes.</div>
+  </section>
+
+  <section>
+    <h2>La méthode complète — où tu en es</h2>
+    <p class="lead">Six piliers, dans l'ordre. Chacun se débloque quand tu as passé la porte du précédent.</p>
+    <table class="rm"><thead><tr><th>Pilier</th><th>Ce que tu y fais</th><th>Statut</th></tr></thead><tbody>
+      <tr><td><strong>1 · Mindset</strong></td><td>l'état d'esprit qui tient <b>+</b> ton projet au clair : persona → offre → marque → voix</td><td class="ok"><a href="https://zakitariqapro.github.io/ctp-plugin/">✓ disponible</a></td></tr>
+      <tr class="here"><td><strong>2 · Vente</strong></td><td>vendre, et le prouver par la répétition — <em>tu es ici</em></td><td class="ok">✓ disponible</td></tr>
+      <tr><td><strong>3 · Produit</strong></td><td>construire ce que tu livres</td><td class="soon">à venir</td></tr>
+      <tr><td><strong>4 · Marketing</strong></td><td>être trouvé, être choisi</td><td class="soon">à venir</td></tr>
+      <tr><td><strong>5 · Opérations</strong></td><td>structurer ta boîte pour passer de solo à équipe</td><td class="ok"><a href="https://zakitariqapro.github.io/ctp-process-plugin/">✓ disponible</a></td></tr>
+      <tr><td><strong>6 · Finances</strong></td><td>piloter l'argent sainement</td><td class="soon">à venir</td></tr>
+      <tr><td><strong>+ Stratégie de contenu</strong></td><td>YouTube : stratégie et production</td><td class="ok"><a href="https://zakitariqapro.github.io/ctp-youtube-plugin/">✓ disponible</a></td></tr>
+    </tbody></table>
+    <p class="sub" style="max-width:none;margin-left:0;margin-right:0">Chaque pilier se ferme sur une <b>porte</b> — elle ne s'ouvre pas sur une bonne intention, mais sur des <b>actes vérifiables</b>, validés en call. Ici, la porte se compte en <b>ventes</b>, jamais en argent.</p>
+  </section>
+
+  <section>
+    <h2>Est-ce le bon moment pour toi ?</h2>
+    <p class="lead">Le parcours vérifie que ton pilier 1 est bouclé avant de démarrer.</p>
+    <div class="step">
+      <ul>
+        <li>Tes quatre livrables sont écrits : <b>persona, offre, positionnement, voix</b>.</li>
+        <li>Tu as mené <b>5 à 10 appels exploratoires</b> avec ta cible.</li>
+        <li>Tu as un <b>pitch prêt</b>, même brut, et le cours Mindset validé.</li>
+      </ul>
+      <div class="note info"><span class="t">Si un morceau manque</span>Coach Zaki te renvoie précisément à l'étape qui manque — jamais tout le parcours. On ne va pas vendre sans savoir à qui et quoi.</div>
+    </div>
+  </section>
+
+  <section id="install">
+    <h2>Installation</h2>
+    <p class="lead">Tu réutilises le dossier de ton pilier 1.</p>
+    <div class="step">
+      <div class="step-head"><div class="num">1</div><h3>Ouvre ton dossier de travail</h3></div>
+      <p><b>Le même que pour le pilier 1.</b> Le parcours Vente va lire ton persona, ton offre, ta voix — et même tes croyances et ton carnet de remèdes du Mindset — pour personnaliser ta stratégie de vente au lieu de te laisser devant une page blanche.</p>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="num">2</div><h3>Installe la boîte à outils du Collectif (prérequis)</h3></div>
+      <p>Elle contient le pilier 1 et <b>Coach Zaki</b>, qui porte tout le parcours. Colle ce message dans Claude :</p>
+      <div class="cmd"><button class="copy">Copier</button>Installe le plugin du Collectif Tariqa PRO depuis ce lien : https://github.com/ZakiTariqaPRO/ctp-plugin.git</div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="num">3</div><h3>Récupère le parcours Vente (réservé aux membres)</h3></div>
+      <p>Contrairement au pilier 1 qui est ouvert à tous, <b>le parcours Vente est réservé aux membres du Collectif Tariqa PRO</b>. Tu le reçois dans <b>ton espace membre sur Circle</b> : dès que tu rejoins le Collectif, l'accès s'ouvre, avec le lien d'installation à coller dans Claude.</p>
+      <div class="note info"><span class="t">Pas encore membre ?</span>Le pilier 1 (ci-dessus) est en accès libre : commence par lui, il pose tout ce sur quoi la Vente s'appuie. Pour la suite, rejoins le Collectif — l'accompagnement, les coachings et les piliers suivants s'ouvrent dans ton espace.</div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="num">4</div><h3>Lance</h3></div>
+      <p>Une fois installé (depuis ton espace membre), toujours dans ce dossier, écris simplement :</p>
+      <div class="say">lance le parcours Vente</div>
+      <p>« Je veux trouver mes premiers clients », « je n'ose pas vendre » ou « je tourne en rond » fonctionnent aussi.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pendant le parcours</h2>
+    <p class="lead">Pris par la main sur le chemin — poussé vers l'action, tout le temps.</p>
+    <div class="step">
+      <ul>
+        <li><b>Chaque tâche a une date et un livrable.</b> Jamais « je vais y réfléchir » : toujours « pour telle date, tu livres ça ».</li>
+        <li><b>Tu suis tes chiffres</b> — juste deux ou trois : combien tu as pitché, tes rendez-vous, ton taux de closing. Pour te driver, pas pour te cacher.</li>
+        <li><b>Ton Mindset t'arme ici.</b> Quand un blocage revient, Coach Zaki te renvoie à ta croyance, ton remède, ton invocation du pilier 1.</li>
+        <li><b>Tu peux tout dicter.</b> Si c'est plus simple à l'oral, tu parles, il met en forme. L'orthographe n'est jamais un sujet.</li>
+      </ul>
+      <div class="note info"><span class="t">Ordre de grandeur</span>Aller chercher ta première vente, c'est souvent <b>un à deux mois</b> de terrain. On avance à ton rythme de vie — mais on avance.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Quand tu bloques — Coach Zaki</h2>
+    <p class="lead">Un coach qui te pousse, pas qui te flatte.</p>
+    <div class="step">
+      <p>La plupart des gens ne bloquent pas parce qu'ils ne savent pas vendre, mais parce qu'ils <b>n'osent pas</b>. Si tu te caches derrière le perfectionnisme, le « pas encore prêt » ou la préparation infinie, il te le dit — et il te ramène à l'action.</p>
+      <p>Pour l'appeler :</p>
+      <div class="say">coache-moi, je n'ose pas prospecter</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>La porte — vers le Produit</h2>
+    <p class="lead">La plus dure du système. Elle se compte en actes.</p>
+    <div class="step">
+      <p><b>Trois ventes payées · la même offre · le même profil de client · validées en call.</b></p>
+      <p>Trois, parce qu'une seule vente peut être un coup de chance ou un ami qui a acheté par gentillesse. La répétition prouve que ton offre tient, que ta cible est la bonne, et que tu sais aller la chercher. Le jour où tu passes cette porte, tu n'as plus une hypothèse — tu as une offre validée par le réel.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Questions fréquentes</h2>
+    <details><summary>Je n'ai pas fait le pilier 1, je peux quand même ?</summary><p>Non, ce serait mettre la charrue avant les bœufs. Vendre suppose que tu sais à qui, quoi et pourquoi toi — tout ça se construit au pilier 1. Fais-le d'abord.</p></details>
+    <details><summary>Je dois montrer mon visage pour créer du contenu ?</summary><p>Non. C'est possible sans — mais c'est plus dur, parce qu'il faut créer la confiance autrement. On te propose des formats très simples : face caméra avec ton téléphone, ou en marchant, avec un peu de sous-titres. Le message compte plus que la production.</p></details>
+    <details><summary>Et si mon offre ne se vend pas ?</summary><p>Tant mieux qu'on le sache tôt. Ce pilier est fait pour ça : tester tes présuppositions. Si le marché ne mord pas, on ne s'entête pas — on regarde pourquoi et on pivote. Les vrais signaux, ce sont tes ventes.</p></details>
+    <details><summary>Faut-il des cours en plus du parcours ?</summary><p>Oui, et c'est voulu. Le parcours te fait <i>exécuter</i> ; les cours du Collectif t'<i>enseignent</i>. Dès le début, Coach Zaki te pousse à valider sur Circle « Les 6 piliers de l'entrepreneuriat » et « les Bases du Digital Marketing ».</p></details>
+    <details><summary>Faut-il payer des outils ?</summary><p>Non. Chaque outil proposé a une voie gratuite — un tableur pour tes stats, un lien de rendez-vous gratuit, ton agenda. Les outils payants restent optionnels, et leur coût est annoncé.</p></details>
+  </section>
+
+  <footer>
+    <p class="bismillah">Bismillah, et bon parcours. On avance — ensemble.</p>
+    <div class="brand">Collectif Tariqa PRO</div>
+    <div class="tg">Entreprendre. Ensemble. Vers Dieu.</div>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.cmd .copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var txt=btn.parentNode.textContent.replace('Copier','').trim();
+      navigator.clipboard.writeText(txt).then(function(){
+        var old=btn.textContent;btn.textContent='Copié ✓';
+        setTimeout(function(){btn.textContent=old;},1500);
+      });
+    });
+  });
+</script>
+</body>
+</html>
